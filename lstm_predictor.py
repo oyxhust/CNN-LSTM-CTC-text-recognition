@@ -9,6 +9,8 @@ sys.path.append("../../python/")
 from mxnet_predict import Predictor
 import mxnet as mx
 
+from symbol.lstm import lstm_unroll
+
 import numpy as np
 import cv2
 import os
@@ -77,8 +79,8 @@ class lstm_ocr_model(object):
         return s
 
 if __name__ == '__main__':
-    json_path = os.path.join(os.getcwd(), 'model', 'old', 'lctc-symbol.json')
-    param_path = os.path.join(os.getcwd(), 'model', 'old', 'lctc-0100.params')
+    json_path = os.path.join(os.getcwd(), 'model', 'lctc-symbol.json')
+    param_path = os.path.join(os.getcwd(), 'model', 'lctc-0100.params')
     num_label = 9 # Set your max length of label, add one more for blank
     batch_size = 1
     num_hidden = 100
